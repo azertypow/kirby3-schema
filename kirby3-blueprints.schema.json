@@ -1451,7 +1451,34 @@
             "$ref": "#/$defs/field-properties/@empty"
           },
           "fieldsets": {
-            "$ref": "#/$defs/field-properties/@fieldsets"
+            "oneOf": [
+              {
+                "type": "object",
+                "patternProperties": {
+                  ".*": {
+                    "$ref": "#/$defs/fieldsetsGroup"
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "code",
+                    "gallery",
+                    "heading",
+                    "image",
+                    "line",
+                    "list",
+                    "markdown",
+                    "quote",
+                    "table",
+                    "text",
+                    "video"
+                  ]
+                }
+              }
+            ]
           },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
